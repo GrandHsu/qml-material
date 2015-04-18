@@ -33,7 +33,6 @@ FocusScope {
         visible: canGoBack
     }
     property bool canGoBack: false
-    property bool cardStyle: false
     property var tabs: []
     property int selectedTab
     property alias actionBar: __actionBar
@@ -48,7 +47,9 @@ FocusScope {
     ActionBar {
         id: __actionBar
 
-        page: page
+        title: page.title
+        backAction: page.backAction
+        actions: page.actions
     }
 
     Rectangle {
