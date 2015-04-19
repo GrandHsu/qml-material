@@ -17,11 +17,26 @@ before_script:
   - qmake
   - sudo make install
   - popd
+  - git clone git://github.com/papyros/docmaker.git
+  - export PATH=$PATH:$(pwd)/docmaker
 
 script:
   - source /opt/qt53/bin/qt53-env.sh
   - qmake
   - make check
+  - ./build_docs.sh
+
+after_success:
+  - ./deploy.sh
 
 notifications:
   slack: papyros:Z7PeY2Y4mh0GWPoypZZNLd3D
+
+# The encryption label is the unique key used in the environment
+# variables set up when calling `travis encrypt-file` on the SSH key
+env:
+  global:
+    - ENCRYPTION_LABEL="a0d7d9cd7ef9"
+    - GIT_NAME="Travis CI"
+    - GIT_EMAIL="sonrisesoftware@gmail.com"
+    - SOURCE_BRANCH="develop"
