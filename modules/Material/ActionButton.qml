@@ -21,6 +21,16 @@ import QtQuick.Controls.Styles 1.2 as ControlStyles
 import Material 0.1
 import QtGraphicalEffects 1.0
 
+/*!
+   \qmltype ActionBar
+   \inqmlmodule Material 0.1
+   \ingroup material
+
+   \brief A floating action button.
+
+   An \l ActionButton is a floating action button that provides a primary action
+   on the current page.
+ */
 Controls.Button {
     id: button
 

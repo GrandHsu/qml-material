@@ -58,17 +58,23 @@ Controls.ApplicationWindow {
     id: app
 
     /*!
+       \qmlproperty AppTheme theme
+
        A grouped property that allows the application to customize the the primary color, the
        primary dark color, and the accent color. See \l Theme for more details.
      */
     property alias theme: __theme
 
     /*!
+       \qmlproperty Page initialPage
+
        The initial page shown when the application starts.
      */
     property alias initialPage: __pageStack.initialItem
 
     /*!
+       \qmlproperty PageStack pageStack
+
        The \l PageStack used for controlling pages and transitions between pages.
      */
     property alias pageStack: __pageStack
