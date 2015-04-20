@@ -25,6 +25,7 @@ script:
   - source /opt/qt53/bin/qt53-env.sh
   - qmake
   - make check
+  - ./lint.sh
   - ./build_docs.sh
 
 after_success:
