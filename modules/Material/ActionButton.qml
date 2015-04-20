@@ -33,13 +33,30 @@ import QtGraphicalEffects 1.0
 Controls.Button {
     id: button
 
+    /*!
+       The color of the action button. By default, this is the accent color of your
+       app as defined by \l Theme::accentColor.
+     */
     property color backgroundColor: Theme.accentColor
+
+
+    /*!
+       \internal
+       The elevation of the icon. This will be higher for a white background color.
+     */
+    property int elevation: backgroundColor == "white" ? 0 : 1
+    /*!
+       The color of the icon displayed on the action button. By default, this is
+       automatically selected based on the \l backgroundColor.
+     */
     property color iconColor: Theme.lightDark(button.backgroundColor,
                                               Theme.light.iconColor,
                                               Theme.dark.iconColor)
 
-    property int elevation: backgroundColor == "white" ? 0 : 1
-
+    /*!
+       The name of the icon to display in the action button, selected from the Material
+       Design icon collection by Google.
+     */
     property string iconName
 
     style: ControlStyles.ButtonStyle {
